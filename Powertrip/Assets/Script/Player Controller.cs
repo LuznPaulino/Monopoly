@@ -13,6 +13,20 @@ public class PlayerController : MonoBehaviour
     private Vector2 _frameVelocity;
     private bool _cachedQueryStartInColliders;
 
+    // Trying out a Dash Feature
+
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 24f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
+    private bool isFacingRight = true;
+    private float horizontal;
+
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private TrailRenderer tr;
+
     #region Interface
 
     public Vector2 FrameInput => _frameInput.Move;
@@ -35,6 +49,20 @@ public class PlayerController : MonoBehaviour
     {
         _time += Time.deltaTime;
         GatherInput();
+
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (isDashing)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
+        Flip();
     }
 
     private void GatherInput()
@@ -69,6 +97,37 @@ public class PlayerController : MonoBehaviour
 
         ApplyMovement();
     }
+
+    #region Flipping
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            Vector3 localScale = transform.localScale;
+            isFacingRight = !isFacingRight;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
+    #endregion
+
+    #region Dashing
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+    #endregion
 
     #region Collisions
 
