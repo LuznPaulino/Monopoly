@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public int playerHealth;
+    public string[] theAbilities = { "Debt Collector", "The Pocketbook", "The Coin Flip" };
+    public string currentAbility = "Debt Collector";
+    public int whereAmI = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +17,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void playerHealthDeducted(int healthRemoved)
@@ -25,5 +28,10 @@ public class GameController : MonoBehaviour
     public void playerHealthAddition(int healthGained)
     {
         playerHealth += healthGained;
+    }
+
+    public void levelCompleted()
+    {
+        whereAmI++;
     }
 }
