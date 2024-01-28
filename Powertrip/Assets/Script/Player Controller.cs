@@ -18,8 +18,11 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 24f;
-    private float dashingTime = 0.2f;
+    private float dashingTime = 0.5f;
     private float dashingCooldown = 1f;
+
+    //Diego edit
+    private float speed= 8f;
 
     private bool isFacingRight = true;
     private float horizontal;
@@ -96,6 +99,14 @@ public class PlayerController : MonoBehaviour
         HandleGravity();
 
         ApplyMovement();
+
+        //Diego Edit
+        if(isDashing)
+        {
+            return;
+        }
+
+        rb.velocity= new Vector2(horizontal *speed, rb.velocity.y);
     }
 
     #region Flipping
