@@ -18,4 +18,16 @@ public class debtCollector : MonoBehaviour
             GetComponent<GameController>().currentAbility = GetComponent<GameController>().theAbilities[0];
         }
     }
+
+    public void recieveHealthBack()
+    {
+        GetComponent<GameController>().playerHealth++;
+    }
+
+    IEnumerable debtCollectorCooldown()
+    {
+        GetComponent<GameController>().debtCollectorCooldown = true;
+        yield return new WaitForSeconds(60);
+        GetComponent<GameController>().debtCollectorCooldown = false;
+    }
 }

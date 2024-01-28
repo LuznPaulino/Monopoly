@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public int playerHealth;
     public string[] theAbilities = { "Debt Collector", "The Pocketbook", "The Coin Flip" };
     public string currentAbility = "Debt Collector";
+    public bool theCointFlipShield = false;
+    public bool theCoinFlipCooldown = false;
+    public bool debtCollectorCooldown= false;
+    public bool pocketbookCooldown = false;
+
     public int whereAmI = 0;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +38,6 @@ public class GameController : MonoBehaviour
 
     public void levelCompleted()
     {
-        whereAmI++;
+        whereAmI = SceneManager.GetActiveScene().buildIndex;
     }
 }

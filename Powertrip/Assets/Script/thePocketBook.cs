@@ -19,5 +19,15 @@ public class thePocketBook : MonoBehaviour
         }
     }
 
-    
+    public void maxiumDamage()
+    {
+        GameObject.FindWithTag("Boss").GetComponent<bossOne>().bossHealth -= 20;
+    }
+
+    IEnumerable pocketbookCooldown()
+    {
+        GetComponent<GameController>().pocketbookCooldown = true;
+        yield return new WaitForSeconds(60);
+        GetComponent<GameController>().pocketbookCooldown = false;
+    }
 }

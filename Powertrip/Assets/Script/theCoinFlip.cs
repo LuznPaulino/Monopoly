@@ -18,4 +18,11 @@ public class theCoinFlip : MonoBehaviour
             GetComponent<GameController>().currentAbility = GetComponent<GameController>().theAbilities[2];
         }
     }
+
+    IEnumerable coinFlipCooldown()
+    {
+        GetComponent<GameController>().theCoinFlipCooldown = true;
+        yield return new WaitForSeconds(60);
+        GetComponent<GameController>().theCoinFlipCooldown = false;
+    }
 }
