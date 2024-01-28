@@ -13,18 +13,15 @@ public class thePocketBook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<GameController>().whereAmI >= 2 && Input.GetKeyDown("2"))
-        {
-            GetComponent<GameController>().currentAbility = GetComponent<GameController>().theAbilities[1];
-        }
+        
     }
 
     public void maxiumDamage()
     {
-        GameObject.FindWithTag("Boss").GetComponent<bossOne>().bossHealth -= 20;
+        GameObject.FindWithTag("Boss").GetComponent<bossOne>().bossHealthDecrease(20);
     }
 
-    IEnumerable pocketbookCooldown()
+    public IEnumerable pocketbookCooldown()
     {
         GetComponent<GameController>().pocketbookCooldown = true;
         yield return new WaitForSeconds(60);
