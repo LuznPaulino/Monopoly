@@ -13,13 +13,10 @@ public class theCoinFlip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<GameController>().whereAmI >= 3 && Input.GetKeyDown("3"))
-        {
-            GetComponent<GameController>().currentAbility = GetComponent<GameController>().theAbilities[2];
-        }
+
     }
 
-    IEnumerable coinFlipCooldown()
+    public IEnumerable coinFlipCooldown()
     {
         GetComponent<GameController>().theCoinFlipCooldown = true;
         yield return new WaitForSeconds(60);

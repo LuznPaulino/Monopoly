@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public int playerHealth;
-    public string[] theAbilities = { "Debt Collector", "The Pocketbook", "The Coin Flip" };
-    public string currentAbility = "Debt Collector";
-    public bool theCointFlipShield = false;
+    public bool theCoinFlipShield = false; 
+    public bool thePocketBookSlowYourRoll = false;
+    public bool debtCollectorLifeSteal = false;
+
     public bool theCoinFlipCooldown = false;
     public bool debtCollectorCooldown= false;
     public bool pocketbookCooldown = false;

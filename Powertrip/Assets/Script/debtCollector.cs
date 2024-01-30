@@ -13,10 +13,7 @@ public class debtCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<GameController>().whereAmI >= 1 && Input.GetKeyDown("1"))
-        {
-            GetComponent<GameController>().currentAbility = GetComponent<GameController>().theAbilities[0];
-        }
+        
     }
 
     public void recieveHealthBack()
@@ -24,7 +21,7 @@ public class debtCollector : MonoBehaviour
         GetComponent<GameController>().playerHealth++;
     }
 
-    IEnumerable debtCollectorCooldown()
+    public IEnumerable debtCollectorCooldown()
     {
         GetComponent<GameController>().debtCollectorCooldown = true;
         yield return new WaitForSeconds(60);
