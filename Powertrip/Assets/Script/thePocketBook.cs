@@ -21,7 +21,7 @@ public class thePocketBook : MonoBehaviour
         GameObject.FindWithTag("Boss").GetComponent<bossOne>().bossHealthDecrease(20);
     }
 
-    public IEnumerable pocketbookCooldown()
+    public IEnumerator pocketbookCooldown()
     {
         GetComponent<GameController>().pocketbookCooldown = true;
         yield return new WaitForSeconds(60);

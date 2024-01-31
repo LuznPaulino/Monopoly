@@ -21,7 +21,7 @@ public class debtCollector : MonoBehaviour
         GetComponent<GameController>().playerHealth++;
     }
 
-    public IEnumerable debtCollectorCooldown()
+    public IEnumerator debtCollectorCooldown()
     {
         GetComponent<GameController>().debtCollectorCooldown = true;
         yield return new WaitForSeconds(60);

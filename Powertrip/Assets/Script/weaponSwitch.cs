@@ -16,21 +16,31 @@ public class weaponSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentLoadOut = weaponChoices[currentPlace];
+        print(currentPlace);
         if (Input.mouseScrollDelta.y >= 1f)
-        {
+        {  
             currentPlace++;
-            if (currentPlace >= 2)
+            if(currentPlace>=0 && currentPlace <= 6)
             {
-                currentPlace = 0;
+                currentLoadOut = weaponChoices[0];
+            }
+            if(currentPlace > 6)
+            {
+                currentPlace = -7;
+                currentLoadOut = weaponChoices[1];
             }
         }
         if (Input.mouseScrollDelta.y <= -1f)
         {
             currentPlace--;
-            if (currentPlace <= -1)
+            if (currentPlace >= -7 && currentPlace <= -1)
             {
-                currentPlace = 1;
+                currentLoadOut = weaponChoices[1];
+            }
+            if (currentPlace < -7)
+            {
+                currentPlace = 6;
+                currentLoadOut = weaponChoices[0];
             }
         }
     }

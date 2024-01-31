@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12981425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12981426}
+  m_Layer: 0
+  m_Name: bulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &12981426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12981425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.37, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 946538984}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +272,15 @@ GameObject:
   - component: {fileID: 946538987}
   - component: {fileID: 946538985}
   - component: {fileID: 946538988}
+  - component: {fileID: 946538997}
+  - component: {fileID: 946538996}
+  - component: {fileID: 946538995}
+  - component: {fileID: 946538994}
+  - component: {fileID: 946538993}
+  - component: {fileID: 946538992}
+  - component: {fileID: 946538991}
+  - component: {fileID: 946538990}
+  - component: {fileID: 946538989}
   m_Layer: 0
   m_Name: Player Controller
   m_TagString: Untagged
@@ -262,6 +302,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2125969844}
+  - {fileID: 12981426}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &946538985
@@ -341,6 +382,129 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.2, y: 1}
   m_Direction: 0
+--- !u!114 &946538989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ac2563f3168d44a959846f72bdf289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &946538990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d343ca0852c3844a3c16b5f73967f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &946538991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff43d1433e81cec4aa427e997a97094f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &946538992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e25db536d5f1f643b901b333d9f0034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 0
+  theCoinFlipShield: 0
+  thePocketBookSlowYourRoll: 0
+  debtCollectorLifeSteal: 0
+  theCoinFlipCooldown: 0
+  debtCollectorCooldown: 0
+  pocketbookCooldown: 0
+  whereAmI: 0
+--- !u!114 &946538993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a7a0db38ffc4d4c8f2fa45ed8baef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &946538994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a8ce07d1cee1e4c95805e225825945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5015732413443548057, guid: b25ed973634112444a4456aefbb66b2a, type: 3}
+  bulletTwo: {fileID: 5015732413443548057, guid: 3c03eec6069b86a4f89674cb14ee2db3, type: 3}
+--- !u!114 &946538995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08de4a128a052914da0c6466936fa6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAbilities:
+  - Debt Collector
+  - The Pocketbook
+  currentAbility: 
+--- !u!114 &946538996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bbc31ecf9b03247812ecf39921696d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &946538997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946538983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9830146be561e4b90dd5a9585776b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLoadOut: shootone
 --- !u!1 &1306385637
 GameObject:
   m_ObjectHideFlags: 0

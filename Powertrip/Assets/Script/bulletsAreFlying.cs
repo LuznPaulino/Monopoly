@@ -6,7 +6,6 @@ public class bulletsAreFlying : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject bulletTwo;
-    public GameObject bulletThree;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +15,7 @@ public class bulletsAreFlying : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             StartCoroutine("bulletFlying");
         }
@@ -25,7 +24,7 @@ public class bulletsAreFlying : MonoBehaviour
 
     }
 
-    IEnumerable bulletFlying()
+    IEnumerator bulletFlying()
     {
         if(GetComponent<weaponSwitch>().currentLoadOut == "shootone")
         {
@@ -53,13 +52,13 @@ public class bulletsAreFlying : MonoBehaviour
                 Destroy(theBullet);
             }
         }
-        if (GetComponent<weaponSwitch>().currentLoadOut == "shootTwo")
+        if (GetComponent<weaponSwitch>().currentLoadOut == "shoottwo")
         {
             if (GetComponent<abilitySwitch>().currentAbility == "Debt Collector" && GetComponent<GameController>().debtCollectorLifeSteal)
             {
-                GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform);
+                GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform);
                 theBullet.tag = "lifeStealDebtCollector";
-                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * 10;
+                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
                 yield return new WaitForSeconds(2);
                 Destroy(theBullet);
             }

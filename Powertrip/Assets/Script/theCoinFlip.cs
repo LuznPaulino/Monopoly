@@ -16,7 +16,7 @@ public class theCoinFlip : MonoBehaviour
 
     }
 
-    public IEnumerable coinFlipCooldown()
+    public IEnumerator coinFlipCooldown()
     {
         GetComponent<GameController>().theCoinFlipCooldown = true;
         yield return new WaitForSeconds(60);

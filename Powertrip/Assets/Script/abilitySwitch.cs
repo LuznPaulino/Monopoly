@@ -16,11 +16,11 @@ public class abilitySwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("E"))
+        if (Input.GetButtonDown("Left Ability"))
         {
             currentAbility = currentAbilities[0];
         }
-        if (Input.GetButtonDown("Q"))
+        if (Input.GetButtonDown("Right Ability"))
         {
             currentAbility = currentAbilities[1];
         }
