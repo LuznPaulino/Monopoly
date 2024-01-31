@@ -431,9 +431,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 0
-  theCoinFlipShield: 0
-  thePocketBookSlowYourRoll: 0
-  debtCollectorLifeSteal: 0
+  theAbilities:
+  - Debt Collector
+  - The Pocketbook
+  - The Coin Flip
+  currentAbility: Debt Collector
+  theCointFlipShield: 0
   theCoinFlipCooldown: 0
   debtCollectorCooldown: 0
   pocketbookCooldown: 0
@@ -464,6 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5015732413443548057, guid: b25ed973634112444a4456aefbb66b2a, type: 3}
   bulletTwo: {fileID: 5015732413443548057, guid: 3c03eec6069b86a4f89674cb14ee2db3, type: 3}
+  bulletThree: {fileID: 0}
 --- !u!114 &946538995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,10 +480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08de4a128a052914da0c6466936fa6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAbilities:
-  - Debt Collector
-  - The Pocketbook
-  currentAbility: 
 --- !u!114 &946538996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9830146be561e4b90dd5a9585776b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLoadOut: shootone
 --- !u!1 &1306385637
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +746,7 @@ GameObject:
   - component: {fileID: 1692116240}
   - component: {fileID: 1692116243}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
