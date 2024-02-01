@@ -16,7 +16,6 @@ public class weaponSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(currentPlace);
         if (Input.mouseScrollDelta.y >= 1f)
         {  
             currentPlace++;

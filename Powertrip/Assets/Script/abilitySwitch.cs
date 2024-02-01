@@ -5,7 +5,7 @@ using UnityEngine;
 public class abilitySwitch : MonoBehaviour
 {
     string[] theAbilities = { "Debt Collector", "The Pocketbook", "The Coin Flip" };
-    public string[] currentAbilities = { "Debt Collector", "The Pocketbook" };
+    public string[] currentAbilities = { "The Coin Flip", "The Pocketbook" };
     public string currentAbility;
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,5 @@ public class abilitySwitch : MonoBehaviour
             currentAbility = currentAbilities[1];
         }
 
-    }
-
-    void chooseTwo (string choiceOne, string choiceTwo) {
-        currentAbilities[0] = choiceOne;
-        currentAbilities[1] = choiceTwo;
     }
 }
