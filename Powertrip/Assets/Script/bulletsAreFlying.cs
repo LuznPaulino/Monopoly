@@ -20,8 +20,6 @@ public class bulletsAreFlying : MonoBehaviour
             StartCoroutine("bulletFlying");
         }
 
-        Vector3 mouseLocation = Input.mousePosition.n
-
     }
 
     IEnumerator bulletFlying()
