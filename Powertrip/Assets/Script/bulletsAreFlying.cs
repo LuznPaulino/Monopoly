@@ -23,6 +23,10 @@ public class bulletsAreFlying : MonoBehaviour
                 StartCoroutine("bulletFlying");
             }
         }
+        else
+        {
+
+        }
         //GameObject.Find("pointer").GetComponent<Transform>().position = new Vector3(GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x, GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y,0);
     }
 
