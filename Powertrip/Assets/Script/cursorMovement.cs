@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class cursorMovement : MonoBehaviour
 {
-
-    PlayerController playerController;
+    Vector2 cursorPlaceOnScreen;
+    ThePlayerControls playerController;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        playerController = new ThePlayerControls();
+        playerController.CursorMoveAround.CursorMoves.performed += test => cursorPlaceOnScreen = test.ReadValue<Vector2>();
+    }
+
     void Start()
     {
         
@@ -15,9 +23,11 @@ public class cursorMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Input.mousePresent)
-        {
+        print(cursorPlaceOnScreen);
+    }
 
-        }
+   void TheCursor()
+    {
+        
     }
 }
