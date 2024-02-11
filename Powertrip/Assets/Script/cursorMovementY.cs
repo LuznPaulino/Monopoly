@@ -1,14 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-public class cursorMovement : MonoBehaviour
+public class cursorMovementY : MonoBehaviour
 {
     Vector2 cursorPlaceOnScreen;
     PlayerInput playerController;
-    // Start is called before the first frame update
 
     void Awake()
     {
@@ -23,20 +20,21 @@ public class cursorMovement : MonoBehaviour
         {
             GameObject.Find("pointer").GetComponent<Transform>().position = new Vector3(GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x, GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y, 0);
         }
+
         if (!Input.mousePresent)
         {
-            if (cursorPlaceOnScreen.x > 0.5)
+            if (cursorPlaceOnScreen.y > 0.5)
             {
-                if (GameObject.Find("Main Camera").GetComponent<Camera>().scaledPixelWidth > GameObject.Find("Main Camera").GetComponent<Camera>().WorldToScreenPoint(GameObject.Find("pointer").GetComponent<Transform>().position).x)
+                if (GameObject.Find("Main Camera").GetComponent<Camera>().scaledPixelHeight > GameObject.Find("Main Camera").GetComponent<Camera>().WorldToScreenPoint(GameObject.Find("pointer").GetComponent<Transform>().position).y)
                 {
-                    GameObject.Find("pointer").GetComponent<Transform>().Translate(0.01f * Vector2.right);
+                    GameObject.Find("pointer").GetComponent<Transform>().Translate(0.01f * Vector2.up);
                 }
             }
-            if (cursorPlaceOnScreen.x < -0.5)
+            if (cursorPlaceOnScreen.y < -0.5)
             {
-                if (0 < GameObject.Find("Main Camera").GetComponent<Camera>().WorldToScreenPoint(GameObject.Find("pointer").GetComponent<Transform>().position).x)
+                if (0 < GameObject.Find("Main Camera").GetComponent<Camera>().WorldToScreenPoint(GameObject.Find("pointer").GetComponent<Transform>().position).y)
                 {
-                    GameObject.Find("pointer").GetComponent<Transform>().Translate(0.01f * Vector2.left);
+                    GameObject.Find("pointer").GetComponent<Transform>().Translate(0.01f * Vector2.down);
                 }
             }
         }

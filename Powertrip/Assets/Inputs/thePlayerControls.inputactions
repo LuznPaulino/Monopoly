@@ -2,7 +2,7 @@
     "name": "thePlayerControls",
     "maps": [
         {
-            "name": "CursorMoveAround",
+            "name": "CursorMoveAroundExternalController",
             "id": "3d0a8e6b-8566-4f16-9fa4-ef81b127f9c1",
             "actions": [
                 {
@@ -18,11 +18,22 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "cf533021-3873-4fb1-8a35-e8b019b08b15",
+                    "id": "8b1eee58-a918-46c3-9f5e-bd8fef140d4e",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "ExternalController",
+                    "action": "CursorMoves",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10586679-fff8-4119-ac5d-3e93136a068d",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseController",
                     "action": "CursorMoves",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -30,5 +41,28 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "ExternalController",
+            "bindingGroup": "ExternalController",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "MouseController",
+            "bindingGroup": "MouseController",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
