@@ -9,115 +9,83 @@ public class bulletsAreFlying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.mousePresent)
         {
-            StartCoroutine("bulletFlying");
+            GameObject.Find("pointer").GetComponent<Transform>().position = new Vector3(GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x, GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y, 0);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                StartCoroutine("bulletFlying");
+            }
         }
+        else
+        {
 
-
-
+        }
+        //GameObject.Find("pointer").GetComponent<Transform>().position = new Vector3(GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x, GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y,0);
     }
+
 
     IEnumerator bulletFlying()
     {
-        if(GetComponent<weaponSwitch>().currentLoadOut == "shootone")
-        {
-            if (GetComponent<abilitySwitch>().currentAbility == "Debt Collector" && GetComponent<GameController>().debtCollectorLifeSteal)
+            if (GetComponent<weaponSwitch>().currentLoadOut == "shootone")
             {
-                GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform);
-                theBullet.tag = "lifeStealDebtCollector";
-                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * 10;
-                yield return new WaitForSeconds(2);
-                Destroy(theBullet);
+                if (GetComponent<abilitySwitch>().currentAbility == "Debt Collector" && GetComponent<GameController>().debtCollectorLifeSteal)
+                {
+                    GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
+                    theBullet.tag = "lifeStealDebtCollector";
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    yield return new WaitForSeconds(2);
+                    Destroy(theBullet);
+                }
+                if (GetComponent<abilitySwitch>().currentAbility == "The Pocketbook" && GetComponent<GameController>().thePocketBookSlowYourRoll)
+                {
+                    GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
+                    theBullet.tag = "SlowRollPocketBook";
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    yield return new WaitForSeconds(2);
+                    Destroy(theBullet);
+                }
+                else
+                {
+                    GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    yield return new WaitForSeconds(2);
+                    Destroy(theBullet);
+                }
             }
-            if (GetComponent<abilitySwitch>().currentAbility == "The Pocketbook" && GetComponent<GameController>().thePocketBookSlowYourRoll)
+            if (GetComponent<weaponSwitch>().currentLoadOut == "shoottwo")
             {
-                GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform);
-                theBullet.tag = "SlowRollPocketBook";
-                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * 1;
-                yield return new WaitForSeconds(2);
-                Destroy(theBullet);
+                if (GetComponent<abilitySwitch>().currentAbility == "Debt Collector" && GetComponent<GameController>().debtCollectorLifeSteal)
+                {
+                    GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
+                    theBullet.tag = "lifeStealDebtCollector";
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    yield return new WaitForSeconds(2);
+                    Destroy(theBullet);
+                }
+                if (GetComponent<abilitySwitch>().currentAbility == "The Pocketbook" && GetComponent<GameController>().thePocketBookSlowYourRoll)
+                {
+                    GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
+                    theBullet.tag = "SlowRollPocketBook";
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    yield return new WaitForSeconds(2);
+                    Destroy(theBullet);
+                }
+                else
+                {
+                    GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    yield return new WaitForSeconds(2);
+                    Destroy(theBullet);
+                }
             }
-            else
-            {
-                GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform);
-                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * 10;
-                yield return new WaitForSeconds(2);
-                Destroy(theBullet);
-            }
-        }
-        if (GetComponent<weaponSwitch>().currentLoadOut == "shoottwo")
-        {
-            if (GetComponent<abilitySwitch>().currentAbility == "Debt Collector" && GetComponent<GameController>().debtCollectorLifeSteal)
-            {
-                GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform);
-                theBullet.tag = "lifeStealDebtCollector";
-                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
-                yield return new WaitForSeconds(2);
-                Destroy(theBullet);
-            }
-            if (GetComponent<abilitySwitch>().currentAbility == "The Pocketbook" && GetComponent<GameController>().thePocketBookSlowYourRoll)
-            {
-                GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform);
-                theBullet.tag = "SlowRollPocketBook";
-                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * 1;
-                yield return new WaitForSeconds(2);
-                Destroy(theBullet);
-            }
-            else
-            {
-                GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform);
-                theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
-                yield return new WaitForSeconds(2);
-                Destroy(theBullet);
-            }
-        }
-        yield return null;
+            yield return null;
     }
 
-    /*
-    if (GetComponent<GameController>().currentAbility.Equals("Debt Collector") && (!GetComponent<GameController>().debtCollectorCooldown))
-        {
-            GetComponent<GameController>().theCoinFlipShield = true;
-            yield return new WaitForSeconds(10);
-            GetComponent<GameController>().theCoinFlipShield = false;
-            StartCoroutine("GetComponent<theCoinFlip>().coinFlipCooldown");
-
-
-            GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform);
-            theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * 10;
-            yield return new WaitForSeconds(2);
-            Destroy(theBullet);
-            StartCoroutine("GetComponent<debtCollector>().debtCollectorCooldown");
-        }
-
-        if (GetComponent<GameController>().currentAbility.Equals("The Pocketbook") && (!GetComponent<GameController>().pocketbookCooldown))
-        {
-            GetComponent<GameController>().theCoinFlipShield = true;
-            yield return new WaitForSeconds(10);
-            GetComponent<GameController>().theCoinFlipShield = false;
-            StartCoroutine("GetComponent<theCoinFlip>().pocketbookCooldown");
-
-            GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform);
-            theBullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
-            yield return new WaitForSeconds(2);
-            Destroy(theBullet);
-            StartCoroutine("GetComponent<thePocketBook>().pocketbookCooldown()");
-        }
-
-
-        if (GetComponent<GameController>().currentAbility.Equals("The Coin Flip") && (!GetComponent<GameController>().theCoinFlipCooldown))
-        {
-            GetComponent<GameController>().theCoinFlipShield = true;
-            yield return new WaitForSeconds(10);
-            GetComponent<GameController>().theCoinFlipShield = false;
-            StartCoroutine("GetComponent<theCoinFlip>().coinFlipCooldown");
-        }
-     */
 }
