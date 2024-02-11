@@ -31,7 +31,7 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""CursorMoves"",
                     ""type"": ""Value"",
                     ""id"": ""202045b3-6e55-4dfb-9bfe-f226924b11dc"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
