@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 290a0996a5ddd1a46add373bc851613c
+  - enabled: 1
+    path: Assets/Scenes/Level_1.unity
+    guid: 33d8ea1dec22ed749969c98463bf37b2
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 18ec8fdfd98c78e47823080bd2142c0b
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 9cf85780293cd004b935aacbe6a59e1a
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 4256e6b37beefaf4398c6a4499f7dc09
   m_configObjects: {}
