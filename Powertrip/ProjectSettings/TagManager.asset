@@ -7,6 +7,9 @@ TagManager:
   - Ammo
   - lifeStealDebtCollector
   - SlowRollPocketBook
+  - Barrier
+  - pointer
+  - cameraBarrier
   layers:
   - Default
   - TransparentFX

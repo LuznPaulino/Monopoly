@@ -8,6 +8,8 @@ public class playerBulletHit : MonoBehaviour
     void Start()
     {
         Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), GameObject.FindWithTag("Player").GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), GameObject.FindWithTag("pointer").GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), GameObject.FindWithTag("cameraBarrier").GetComponent<Collider2D>());
     }
 
     // Update is called once per frame
