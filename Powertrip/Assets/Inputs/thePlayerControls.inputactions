@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PlayerMoves",
+                    "type": "Button",
+                    "id": "8c9fddae-417f-41d3-b678-316e380aec81",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -52,6 +61,50 @@
                     "processors": "",
                     "groups": "MouseController",
                     "action": "CursorMoves",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5be5f0f3-19aa-47e5-a063-7f41cb52ef8a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseController",
+                    "action": "PlayerMoves",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a96700b-db54-4477-9c1f-c03b95c9737a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseController",
+                    "action": "PlayerMoves",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c84a0552-98fe-48be-a2db-2c3ecd5adb34",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseController",
+                    "action": "PlayerMoves",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ad8e855-8b28-47bc-b429-8b2672bdeb63",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseController",
+                    "action": "PlayerMoves",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
