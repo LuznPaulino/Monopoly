@@ -30,7 +30,7 @@ public class bulletsAreFlying : MonoBehaviour
                 {
                     GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
                     theBullet.tag = "lifeStealDebtCollector";
-                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("pointer").transform.position - GameObject.Find("bulletSpawn").transform.position).normalized;
                     yield return new WaitForSeconds(2);
                     Destroy(theBullet);
                 }
@@ -38,14 +38,14 @@ public class bulletsAreFlying : MonoBehaviour
                 {
                     GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
                     theBullet.tag = "SlowRollPocketBook";
-                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("pointer").transform.position - GameObject.Find("bulletSpawn").transform.position).normalized;
                     yield return new WaitForSeconds(2);
                     Destroy(theBullet);
                 }
                 else
                 {
                     GameObject theBullet = Instantiate(bullet, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
-                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("pointer").transform.position - GameObject.Find("bulletSpawn").transform.position).normalized;
                     yield return new WaitForSeconds(2);
                     Destroy(theBullet);
                 }
@@ -56,7 +56,7 @@ public class bulletsAreFlying : MonoBehaviour
                 {
                     GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
                     theBullet.tag = "lifeStealDebtCollector";
-                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("pointer").transform.position - GameObject.Find("bulletSpawn").transform.position).normalized;
                     yield return new WaitForSeconds(2);
                     Destroy(theBullet);
                 }
@@ -64,14 +64,14 @@ public class bulletsAreFlying : MonoBehaviour
                 {
                     GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
                     theBullet.tag = "SlowRollPocketBook";
-                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("pointer").transform.position - GameObject.Find("bulletSpawn").transform.position).normalized;
                     yield return new WaitForSeconds(2);
                     Destroy(theBullet);
                 }
                 else
                 {
                     GameObject theBullet = Instantiate(bulletTwo, GameObject.Find("bulletSpawn").transform.position, GameObject.Find("bulletSpawn").transform.rotation);
-                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - GameObject.Find("bulletSpawn").transform.position).normalized;
+                    theBullet.GetComponent<Rigidbody2D>().velocity = 10 * (GameObject.Find("pointer").transform.position - GameObject.Find("bulletSpawn").transform.position).normalized;
                     yield return new WaitForSeconds(2);
                     Destroy(theBullet);
                 }

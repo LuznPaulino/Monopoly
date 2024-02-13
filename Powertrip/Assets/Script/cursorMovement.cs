@@ -7,7 +7,9 @@ using UnityEngine.InputSystem;
 public class cursorMovement : MonoBehaviour
 {
     Vector2 cursorPlaceOnScreen;
+    Vector2 whereToPlaceCursor;
     PlayerInput playerController;
+    public bool disableCursor;
     // Start is called before the first frame update
 
     void Awake()
@@ -19,11 +21,11 @@ public class cursorMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.mousePresent)
+        if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() != null)
         {
             GameObject.Find("pointer").GetComponent<Transform>().position = new Vector3(GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x, GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y, 0);
         }
-        if (!Input.mousePresent)
+        if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() == null)
         {
             if (cursorPlaceOnScreen.x > 0.5)
             {
@@ -36,6 +38,7 @@ public class cursorMovement : MonoBehaviour
             {
                 if (0 < GameObject.Find("Main Camera").GetComponent<Camera>().WorldToScreenPoint(GameObject.Find("pointer").GetComponent<Transform>().position).x)
                 {
+
                     GameObject.Find("pointer").GetComponent<Transform>().Translate(0.01f * Vector2.left);
                 }
             }
@@ -44,6 +47,7 @@ public class cursorMovement : MonoBehaviour
 
     private void playerMoves(InputAction.CallbackContext obj)
     {
+       if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() == null) {
         if (obj.performed)
         {
             cursorPlaceOnScreen = obj.ReadValue<Vector2>();
@@ -52,5 +56,6 @@ public class cursorMovement : MonoBehaviour
         {
             cursorPlaceOnScreen = new Vector2(0, 0);
         }
+    }
     }
 }

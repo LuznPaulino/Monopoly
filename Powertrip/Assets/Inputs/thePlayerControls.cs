@@ -48,10 +48,27 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""CursorMoves"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""CursorMoveAroundKeyboard"",
+            ""id"": ""a8f8b96f-9a64-4026-b31c-0fee4fe49d8c"",
+            ""actions"": [
+                {
+                    ""name"": ""CursorMoves"",
+                    ""type"": ""Value"",
+                    ""id"": ""df5cc1e3-d861-4259-b623-44198d3144a1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""10586679-fff8-4119-ac5d-3e93136a068d"",
+                    ""id"": ""fece1b50-e5c4-4bec-a98b-dff7f85d1712"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -91,6 +108,9 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
         // CursorMoveAroundExternalController
         m_CursorMoveAroundExternalController = asset.FindActionMap("CursorMoveAroundExternalController", throwIfNotFound: true);
         m_CursorMoveAroundExternalController_CursorMoves = m_CursorMoveAroundExternalController.FindAction("CursorMoves", throwIfNotFound: true);
+        // CursorMoveAroundKeyboard
+        m_CursorMoveAroundKeyboard = asset.FindActionMap("CursorMoveAroundKeyboard", throwIfNotFound: true);
+        m_CursorMoveAroundKeyboard_CursorMoves = m_CursorMoveAroundKeyboard.FindAction("CursorMoves", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -194,6 +214,52 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public CursorMoveAroundExternalControllerActions @CursorMoveAroundExternalController => new CursorMoveAroundExternalControllerActions(this);
+
+    // CursorMoveAroundKeyboard
+    private readonly InputActionMap m_CursorMoveAroundKeyboard;
+    private List<ICursorMoveAroundKeyboardActions> m_CursorMoveAroundKeyboardActionsCallbackInterfaces = new List<ICursorMoveAroundKeyboardActions>();
+    private readonly InputAction m_CursorMoveAroundKeyboard_CursorMoves;
+    public struct CursorMoveAroundKeyboardActions
+    {
+        private @ThePlayerControls m_Wrapper;
+        public CursorMoveAroundKeyboardActions(@ThePlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @CursorMoves => m_Wrapper.m_CursorMoveAroundKeyboard_CursorMoves;
+        public InputActionMap Get() { return m_Wrapper.m_CursorMoveAroundKeyboard; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CursorMoveAroundKeyboardActions set) { return set.Get(); }
+        public void AddCallbacks(ICursorMoveAroundKeyboardActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CursorMoveAroundKeyboardActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CursorMoveAroundKeyboardActionsCallbackInterfaces.Add(instance);
+            @CursorMoves.started += instance.OnCursorMoves;
+            @CursorMoves.performed += instance.OnCursorMoves;
+            @CursorMoves.canceled += instance.OnCursorMoves;
+        }
+
+        private void UnregisterCallbacks(ICursorMoveAroundKeyboardActions instance)
+        {
+            @CursorMoves.started -= instance.OnCursorMoves;
+            @CursorMoves.performed -= instance.OnCursorMoves;
+            @CursorMoves.canceled -= instance.OnCursorMoves;
+        }
+
+        public void RemoveCallbacks(ICursorMoveAroundKeyboardActions instance)
+        {
+            if (m_Wrapper.m_CursorMoveAroundKeyboardActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICursorMoveAroundKeyboardActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CursorMoveAroundKeyboardActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CursorMoveAroundKeyboardActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CursorMoveAroundKeyboardActions @CursorMoveAroundKeyboard => new CursorMoveAroundKeyboardActions(this);
     private int m_ExternalControllerSchemeIndex = -1;
     public InputControlScheme ExternalControllerScheme
     {
@@ -213,6 +279,10 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public interface ICursorMoveAroundExternalControllerActions
+    {
+        void OnCursorMoves(InputAction.CallbackContext context);
+    }
+    public interface ICursorMoveAroundKeyboardActions
     {
         void OnCursorMoves(InputAction.CallbackContext context);
     }

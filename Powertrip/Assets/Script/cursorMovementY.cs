@@ -16,12 +16,12 @@ public class cursorMovementY : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.mousePresent)
+        if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() != null)
         {
             GameObject.Find("pointer").GetComponent<Transform>().position = new Vector3(GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x, GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y, 0);
         }
 
-        if (!Input.mousePresent)
+        if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() == null)
         {
             if (cursorPlaceOnScreen.y > 0.5)
             {
@@ -42,13 +42,16 @@ public class cursorMovementY : MonoBehaviour
 
     private void playerMoves(InputAction.CallbackContext obj)
     {
-        if (obj.performed)
+        if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() == null)
         {
-            cursorPlaceOnScreen = obj.ReadValue<Vector2>();
-        }
-        if (obj.canceled)
-        {
-            cursorPlaceOnScreen = new Vector2(0, 0);
+            if (obj.performed)
+            {
+                cursorPlaceOnScreen = obj.ReadValue<Vector2>();
+            }
+            if (obj.canceled)
+            {
+                cursorPlaceOnScreen = new Vector2(0, 0);
+            }
         }
     }
 }

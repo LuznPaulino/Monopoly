@@ -26,10 +26,27 @@
                     "action": "CursorMoves",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "CursorMoveAroundKeyboard",
+            "id": "a8f8b96f-9a64-4026-b31c-0fee4fe49d8c",
+            "actions": [
+                {
+                    "name": "CursorMoves",
+                    "type": "Value",
+                    "id": "df5cc1e3-d861-4259-b623-44198d3144a1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "10586679-fff8-4119-ac5d-3e93136a068d",
+                    "id": "fece1b50-e5c4-4bec-a98b-dff7f85d1712",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
