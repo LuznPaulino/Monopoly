@@ -63,15 +63,6 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""PlayerMoves"",
-                    ""type"": ""Button"",
-                    ""id"": ""8c9fddae-417f-41d3-b678-316e380aec81"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -83,50 +74,6 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""MouseController"",
                     ""action"": ""CursorMoves"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5be5f0f3-19aa-47e5-a063-7f41cb52ef8a"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseController"",
-                    ""action"": ""PlayerMoves"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1a96700b-db54-4477-9c1f-c03b95c9737a"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseController"",
-                    ""action"": ""PlayerMoves"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c84a0552-98fe-48be-a2db-2c3ecd5adb34"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseController"",
-                    ""action"": ""PlayerMoves"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5ad8e855-8b28-47bc-b429-8b2672bdeb63"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseController"",
-                    ""action"": ""PlayerMoves"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -164,7 +111,6 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
         // CursorMoveAroundKeyboard
         m_CursorMoveAroundKeyboard = asset.FindActionMap("CursorMoveAroundKeyboard", throwIfNotFound: true);
         m_CursorMoveAroundKeyboard_CursorMoves = m_CursorMoveAroundKeyboard.FindAction("CursorMoves", throwIfNotFound: true);
-        m_CursorMoveAroundKeyboard_PlayerMoves = m_CursorMoveAroundKeyboard.FindAction("PlayerMoves", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,13 +219,11 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_CursorMoveAroundKeyboard;
     private List<ICursorMoveAroundKeyboardActions> m_CursorMoveAroundKeyboardActionsCallbackInterfaces = new List<ICursorMoveAroundKeyboardActions>();
     private readonly InputAction m_CursorMoveAroundKeyboard_CursorMoves;
-    private readonly InputAction m_CursorMoveAroundKeyboard_PlayerMoves;
     public struct CursorMoveAroundKeyboardActions
     {
         private @ThePlayerControls m_Wrapper;
         public CursorMoveAroundKeyboardActions(@ThePlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @CursorMoves => m_Wrapper.m_CursorMoveAroundKeyboard_CursorMoves;
-        public InputAction @PlayerMoves => m_Wrapper.m_CursorMoveAroundKeyboard_PlayerMoves;
         public InputActionMap Get() { return m_Wrapper.m_CursorMoveAroundKeyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -292,9 +236,6 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
             @CursorMoves.started += instance.OnCursorMoves;
             @CursorMoves.performed += instance.OnCursorMoves;
             @CursorMoves.canceled += instance.OnCursorMoves;
-            @PlayerMoves.started += instance.OnPlayerMoves;
-            @PlayerMoves.performed += instance.OnPlayerMoves;
-            @PlayerMoves.canceled += instance.OnPlayerMoves;
         }
 
         private void UnregisterCallbacks(ICursorMoveAroundKeyboardActions instance)
@@ -302,9 +243,6 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
             @CursorMoves.started -= instance.OnCursorMoves;
             @CursorMoves.performed -= instance.OnCursorMoves;
             @CursorMoves.canceled -= instance.OnCursorMoves;
-            @PlayerMoves.started -= instance.OnPlayerMoves;
-            @PlayerMoves.performed -= instance.OnPlayerMoves;
-            @PlayerMoves.canceled -= instance.OnPlayerMoves;
         }
 
         public void RemoveCallbacks(ICursorMoveAroundKeyboardActions instance)
@@ -347,6 +285,5 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
     public interface ICursorMoveAroundKeyboardActions
     {
         void OnCursorMoves(InputAction.CallbackContext context);
-        void OnPlayerMoves(InputAction.CallbackContext context);
     }
 }

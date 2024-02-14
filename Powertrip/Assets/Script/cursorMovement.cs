@@ -15,7 +15,7 @@ public class cursorMovement : MonoBehaviour
     void Awake()
     {
         playerController = GetComponent<PlayerInput>();
-        playerController.onActionTriggered += playerMoves;
+        playerController.onActionTriggered += playerMovesCursor;
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class cursorMovement : MonoBehaviour
         }
     }
 
-    private void playerMoves(InputAction.CallbackContext obj)
+    private void playerMovesCursor(InputAction.CallbackContext obj)
     {
        if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() == null) {
         if (obj.performed)
@@ -56,6 +56,6 @@ public class cursorMovement : MonoBehaviour
         {
             cursorPlaceOnScreen = new Vector2(0, 0);
         }
-    }
+        }
     }
 }
