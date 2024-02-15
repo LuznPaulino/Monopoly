@@ -2,7 +2,7 @@
     "name": "thePlayerControls",
     "maps": [
         {
-            "name": "CursorMoveAroundExternalController",
+            "name": "thePlayer",
             "id": "3d0a8e6b-8566-4f16-9fa4-ef81b127f9c1",
             "actions": [
                 {
@@ -10,6 +10,15 @@
                     "type": "Value",
                     "id": "202045b3-6e55-4dfb-9bfe-f226924b11dc",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "AbilitySwitch",
+                    "type": "Value",
+                    "id": "93d11583-1c5c-4e5b-8f84-7d719b0d345d",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -26,32 +35,59 @@
                     "action": "CursorMoves",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "CursorMoveAroundKeyboard",
-            "id": "a8f8b96f-9a64-4026-b31c-0fee4fe49d8c",
-            "actions": [
-                {
-                    "name": "CursorMoves",
-                    "type": "Value",
-                    "id": "df5cc1e3-d861-4259-b623-44198d3144a1",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "fece1b50-e5c4-4bec-a98b-dff7f85d1712",
+                    "id": "dad1eb95-03e7-4a99-8982-ea8c88abde04",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseController",
                     "action": "CursorMoves",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73e32398-e12d-4bd2-b684-9916be76afe0",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ExternalController",
+                    "action": "AbilitySwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe18fd1d-ba8d-4402-a1fa-e71efe517d7b",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AbilitySwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f29c85b-dfb4-436a-a2ca-38533f8fed6c",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AbilitySwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8985145-caef-4e7d-88ac-71bf384486f1",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AbilitySwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
