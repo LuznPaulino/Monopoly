@@ -25,22 +25,40 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""thePlayer"",
-            ""id"": ""3d0a8e6b-8566-4f16-9fa4-ef81b127f9c1"",
+            ""id"": ""6d4f50f5-b796-4ee3-bd05-c8ca4c0da22c"",
             ""actions"": [
                 {
                     ""name"": ""CursorMoves"",
                     ""type"": ""Value"",
-                    ""id"": ""202045b3-6e55-4dfb-9bfe-f226924b11dc"",
+                    ""id"": ""25fd35d9-9055-40cc-88ec-164333912624"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""AbilitySwitch"",
+                    ""name"": ""leftAbilitySwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""f38b71f0-1d64-4da2-829e-03a9f48e6cd3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""rightAbilitySwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""50a69ed2-81df-4315-95be-28972a2d5e01"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CursorMovesTwo"",
                     ""type"": ""Value"",
-                    ""id"": ""93d11583-1c5c-4e5b-8f84-7d719b0d345d"",
-                    ""expectedControlType"": """",
+                    ""id"": ""c76ca78a-4897-4e22-bf6a-cbee60b41b83"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -49,7 +67,7 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""8b1eee58-a918-46c3-9f5e-bd8fef140d4e"",
+                    ""id"": ""f2b0fe48-89be-48df-a664-99dac7dcb0b3"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -60,56 +78,56 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dad1eb95-03e7-4a99-8982-ea8c88abde04"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""b47d4f18-7066-4a5e-87b8-713d8fb57daf"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseController"",
-                    ""action"": ""CursorMoves"",
+                    ""action"": ""leftAbilitySwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""73e32398-e12d-4bd2-b684-9916be76afe0"",
+                    ""id"": ""92363269-036d-4af5-a138-286113d7a9b5"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""ExternalController"",
-                    ""action"": ""AbilitySwitch"",
+                    ""action"": ""leftAbilitySwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fe18fd1d-ba8d-4402-a1fa-e71efe517d7b"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AbilitySwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8f29c85b-dfb4-436a-a2ca-38533f8fed6c"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AbilitySwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f8985145-caef-4e7d-88ac-71bf384486f1"",
+                    ""id"": ""eb7125c2-3fd8-4629-b724-9336542f2d32"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AbilitySwitch"",
+                    ""groups"": ""MouseController"",
+                    ""action"": ""rightAbilitySwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""112afc62-c92a-481a-b4e4-0bbfa83dc9d8"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""ExternalController"",
+                    ""action"": ""rightAbilitySwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""273fe10f-bcd1-4b21-a8e7-24a30e6a3ab7"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseController"",
+                    ""action"": ""CursorMovesTwo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -144,7 +162,9 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
         // thePlayer
         m_thePlayer = asset.FindActionMap("thePlayer", throwIfNotFound: true);
         m_thePlayer_CursorMoves = m_thePlayer.FindAction("CursorMoves", throwIfNotFound: true);
-        m_thePlayer_AbilitySwitch = m_thePlayer.FindAction("AbilitySwitch", throwIfNotFound: true);
+        m_thePlayer_leftAbilitySwitch = m_thePlayer.FindAction("leftAbilitySwitch", throwIfNotFound: true);
+        m_thePlayer_rightAbilitySwitch = m_thePlayer.FindAction("rightAbilitySwitch", throwIfNotFound: true);
+        m_thePlayer_CursorMovesTwo = m_thePlayer.FindAction("CursorMovesTwo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,13 +227,17 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_thePlayer;
     private List<IThePlayerActions> m_ThePlayerActionsCallbackInterfaces = new List<IThePlayerActions>();
     private readonly InputAction m_thePlayer_CursorMoves;
-    private readonly InputAction m_thePlayer_AbilitySwitch;
+    private readonly InputAction m_thePlayer_leftAbilitySwitch;
+    private readonly InputAction m_thePlayer_rightAbilitySwitch;
+    private readonly InputAction m_thePlayer_CursorMovesTwo;
     public struct ThePlayerActions
     {
         private @ThePlayerControls m_Wrapper;
         public ThePlayerActions(@ThePlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @CursorMoves => m_Wrapper.m_thePlayer_CursorMoves;
-        public InputAction @AbilitySwitch => m_Wrapper.m_thePlayer_AbilitySwitch;
+        public InputAction @leftAbilitySwitch => m_Wrapper.m_thePlayer_leftAbilitySwitch;
+        public InputAction @rightAbilitySwitch => m_Wrapper.m_thePlayer_rightAbilitySwitch;
+        public InputAction @CursorMovesTwo => m_Wrapper.m_thePlayer_CursorMovesTwo;
         public InputActionMap Get() { return m_Wrapper.m_thePlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -226,9 +250,15 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
             @CursorMoves.started += instance.OnCursorMoves;
             @CursorMoves.performed += instance.OnCursorMoves;
             @CursorMoves.canceled += instance.OnCursorMoves;
-            @AbilitySwitch.started += instance.OnAbilitySwitch;
-            @AbilitySwitch.performed += instance.OnAbilitySwitch;
-            @AbilitySwitch.canceled += instance.OnAbilitySwitch;
+            @leftAbilitySwitch.started += instance.OnLeftAbilitySwitch;
+            @leftAbilitySwitch.performed += instance.OnLeftAbilitySwitch;
+            @leftAbilitySwitch.canceled += instance.OnLeftAbilitySwitch;
+            @rightAbilitySwitch.started += instance.OnRightAbilitySwitch;
+            @rightAbilitySwitch.performed += instance.OnRightAbilitySwitch;
+            @rightAbilitySwitch.canceled += instance.OnRightAbilitySwitch;
+            @CursorMovesTwo.started += instance.OnCursorMovesTwo;
+            @CursorMovesTwo.performed += instance.OnCursorMovesTwo;
+            @CursorMovesTwo.canceled += instance.OnCursorMovesTwo;
         }
 
         private void UnregisterCallbacks(IThePlayerActions instance)
@@ -236,9 +266,15 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
             @CursorMoves.started -= instance.OnCursorMoves;
             @CursorMoves.performed -= instance.OnCursorMoves;
             @CursorMoves.canceled -= instance.OnCursorMoves;
-            @AbilitySwitch.started -= instance.OnAbilitySwitch;
-            @AbilitySwitch.performed -= instance.OnAbilitySwitch;
-            @AbilitySwitch.canceled -= instance.OnAbilitySwitch;
+            @leftAbilitySwitch.started -= instance.OnLeftAbilitySwitch;
+            @leftAbilitySwitch.performed -= instance.OnLeftAbilitySwitch;
+            @leftAbilitySwitch.canceled -= instance.OnLeftAbilitySwitch;
+            @rightAbilitySwitch.started -= instance.OnRightAbilitySwitch;
+            @rightAbilitySwitch.performed -= instance.OnRightAbilitySwitch;
+            @rightAbilitySwitch.canceled -= instance.OnRightAbilitySwitch;
+            @CursorMovesTwo.started -= instance.OnCursorMovesTwo;
+            @CursorMovesTwo.performed -= instance.OnCursorMovesTwo;
+            @CursorMovesTwo.canceled -= instance.OnCursorMovesTwo;
         }
 
         public void RemoveCallbacks(IThePlayerActions instance)
@@ -277,6 +313,8 @@ public partial class @ThePlayerControls: IInputActionCollection2, IDisposable
     public interface IThePlayerActions
     {
         void OnCursorMoves(InputAction.CallbackContext context);
-        void OnAbilitySwitch(InputAction.CallbackContext context);
+        void OnLeftAbilitySwitch(InputAction.CallbackContext context);
+        void OnRightAbilitySwitch(InputAction.CallbackContext context);
+        void OnCursorMovesTwo(InputAction.CallbackContext context);
     }
 }

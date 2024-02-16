@@ -6,16 +6,19 @@ public class cursorMovementY : MonoBehaviour
 {
     Vector2 cursorPlaceOnScreen;
     PlayerInput playerController;
+    ThePlayerControls thePlayerCanControl;
 
     void Awake()
     {
-        playerController = GetComponent<PlayerInput>();
-        playerController.onActionTriggered += playerMoves;
+        thePlayerCanControl = new ThePlayerControls();
+        thePlayerCanControl.thePlayer.Enable();
+        thePlayerCanControl.thePlayer.CursorMoves.performed += playerMoves;
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(this.GetComponent<PlayerInput>().GetDevice<Mouse>() == null);
         if (this.GetComponent<PlayerInput>().GetDevice<Mouse>() != null)
         {
             GameObject.Find("pointer").GetComponent<Transform>().position = new Vector3(GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x, GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y, 0);

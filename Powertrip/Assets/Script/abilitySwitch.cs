@@ -9,11 +9,16 @@ public class abilitySwitch : MonoBehaviour
     public string[] currentAbilities = { "The Coin Flip", "The Pocketbook" };
     public string currentAbility;
     ThePlayerControls playerControl;
+    PlayerInput thePlayerInput;
     // Start is called before the first frame update
 
     void Awake()
     {
+        thePlayerInput = GetComponent<PlayerInput>();
         playerControl = new ThePlayerControls();
+        playerControl.thePlayer.Enable();
+        playerControl.thePlayer.leftAbilitySwitch.performed += playerLeftAbilitySwitch;
+        playerControl.thePlayer.rightAbilitySwitch.performed += playerRightAbilitySwitch;
     }
 
 
@@ -25,21 +30,25 @@ public class abilitySwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(playerControl.thePlayer.AbilitySwitch.IsPressed());
-        if (Input.GetButtonDown("Left Ability"))
+
+    }
+
+
+    private void playerLeftAbilitySwitch(InputAction.CallbackContext obj)
+    {
+        if (obj.performed)
         {
             currentAbility = currentAbilities[0];
         }
-        if (Input.GetButtonDown("Right Ability"))
+    }
+
+    private void playerRightAbilitySwitch(InputAction.CallbackContext obj)
+    {
+        if (obj.performed)
         {
             currentAbility = currentAbilities[1];
         }
-
     }
 
 
-    private void playerAbilitySwitch(InputAction.CallbackContext obj)
-    {
-        print(obj.ReadValue<Vector2>());
-    }
 }
